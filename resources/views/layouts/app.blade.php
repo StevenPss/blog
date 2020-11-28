@@ -76,7 +76,24 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            @auth
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Posts <span class="badge badge-primary badge-pill">9</span></a>
+                                <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Categories <span class="badge badge-primary badge-pill">5</span></a>
+                                <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Porta ac consectetur ac <span class="badge badge-primary badge-pill">7</span></a>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            @yield('content')
+                        </div>
+                    </div>
+                </div>
+            @else
+                @yield('content')
+            @endauth
         </main>
     </div>
 </body>
