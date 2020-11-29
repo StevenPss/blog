@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('css')
 </head>
 <body>
     <div id="app">
@@ -78,11 +79,21 @@
         <main class="py-4">
             @auth
                 <div class="container">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                     <div class="row">
                         <div class="col-md-4">
                             <div class="list-group">
                                 <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Posts <span class="badge badge-primary badge-pill">9</span></a>
-                                <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Categories <span class="badge badge-primary badge-pill">5</span></a>
+                                <a href="{{ route('categories.index') }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Categories <span class="badge badge-primary badge-pill">5</span></a>
                                 <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Porta ac consectetur ac <span class="badge badge-primary badge-pill">7</span></a>
                             </div>
                         </div>
@@ -96,5 +107,6 @@
             @endauth
         </main>
     </div>
+    @yield('scripts')
 </body>
 </html>
