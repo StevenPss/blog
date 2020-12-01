@@ -9,9 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -92,9 +89,13 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="list-group">
-                                <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Posts <span class="badge badge-primary badge-pill">9</span></a>
+                                <a href="{{ route('posts.index') }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Posts <span class="badge badge-primary badge-pill">9</span></a>
                                 <a href="{{ route('categories.index') }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Categories <span class="badge badge-primary badge-pill">5</span></a>
                                 <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Porta ac consectetur ac <span class="badge badge-primary badge-pill">7</span></a>
+                            </div>
+
+                            <div class="list-group">
+                                <a href="{{ route('trashed-posts.index') }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center mt-5">Trashed Posts <span class="badge badge-primary badge-pill">2</span></a>                                
                             </div>
                         </div>
                         <div class="col-md-8">
@@ -107,6 +108,9 @@
             @endauth
         </main>
     </div>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
     @yield('scripts')
 </body>
 </html>

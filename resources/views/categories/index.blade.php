@@ -8,7 +8,7 @@
         </div>
 
         <div class="card-body">
-            <table class="table">
+            <table id="dtTable" class="table table-striped">
                 <thead>
                     <th>Name</th>
                     <th>Actions</th>
@@ -27,6 +27,12 @@
                         </tr>
                     @endforeach
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>Actions</th>
+                      </tr>
+                </tfoot>
             </table>
 
             <!-- Modal -->
@@ -58,8 +64,18 @@
 @endsection
 
 
+@section('css')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+@endsection
+
+
 @section('scripts')
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script>
+        $(document).ready( function () {
+            $('#dtTable').DataTable();
+        } );
+
         function handleDelete(id) {
             var form = document.getElementById('deleteCategoryForm')
             form.action = '/categories/' + id
