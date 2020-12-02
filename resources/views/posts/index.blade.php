@@ -26,6 +26,12 @@
                             <td class="d-flex">
                                 @if (!$post->trashed())
                                     <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-info btn-sm mr-2">Edit</a>
+                                @else
+                                    <form action="{{ route('restore-post', $post->id) }}" method="post">
+                                        @csrf
+                                        @method('PUT')
+                                        <button type="submit" class="btn btn-info btn-sm mr-2">Restore</button>
+                                    </form>
                                 @endif
                                 <form action="{{ route('posts.destroy', $post->id) }}" method="post">
                                     @csrf
