@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Posts\CreatePostsRequest;
 use App\Http\Requests\Posts\UpdatePostsRequest;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('verifyCategoriesCount')->only(['create', 'store']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +34,9 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('posts.create', [
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -47,7 +54,8 @@ class PostsController extends Controller
             'description' => $request->description,
             'content' => $request->content,
             'published_at' => $request->published_at,
-            'image' => $image
+            'image' => $image,
+            'category_id' => $request->category
         ]);
 
         session()->flash('success', 'Post created successfully');
@@ -75,7 +83,8 @@ class PostsController extends Controller
     public function edit(Post $post)
     {
         return view('posts.create', [
-            'post' => $post
+            'post' => $post,
+            'categories' => Category::all()
         ]);
     }
 
@@ -88,7 +97,7 @@ class PostsController extends Controller
      */
     public function update(UpdatePostsRequest $request, Post $post)
     {
-        $data = $request->only(['title', 'description', 'published_at', 'content']);
+        $data = $request->only(['title', 'description', 'published_at', 'content', 'category']);
 
         if ($request->hasFile('image')) {
             $image = $request->image->store('posts');

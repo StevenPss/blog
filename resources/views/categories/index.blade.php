@@ -11,6 +11,7 @@
             <table id="dtTable" class="table table-striped">
                 <thead>
                     <th>Name</th>
+                    <th>Post Count</th>
                     <th>Actions</th>
                 </thead>
                 <tbody>
@@ -18,6 +19,10 @@
                         <tr>
                             <td>
                                 {{ $category->name }}
+                            </td>
+
+                            <td>
+                                {{ $category->posts->count() }}
                             </td>
 
                             <td>
@@ -30,6 +35,7 @@
                 <tfoot>
                     <tr>
                         <th>Name</th>
+                        <th>Post Count</th>
                         <th>Actions</th>
                       </tr>
                 </tfoot>

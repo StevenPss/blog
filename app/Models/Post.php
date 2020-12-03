@@ -17,7 +17,8 @@ class Post extends Model
         'description',
         'content',
         'published_at',
-        'image'
+        'image',
+        'category_id'
     ];
 
 
@@ -28,5 +29,10 @@ class Post extends Model
     public function deleteImage()
     {
         Storage::delete($this->image);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

@@ -12,6 +12,7 @@
                 <thead>
                     <th>Image</th>
                     <th>Title</th>
+                    <th>Category</th>
                     <th>Actions</th>
                 </thead>
                 <tbody>
@@ -22,6 +23,11 @@
                             </td>
                             <td>
                                 {{ $post->title }}
+                            </td>
+                            <td>
+                                <a href="{{ route('categories.edit', $post->category->id) }}">
+                                    {{ $post->category->name }}
+                                </a>
                             </td>
                             <td class="d-flex">
                                 @if (!$post->trashed())
@@ -48,6 +54,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Title</th>
+                        <th>Category</th>
                         <th>Actions</th>
                       </tr>
                 </tfoot>
