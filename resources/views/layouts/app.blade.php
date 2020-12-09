@@ -91,7 +91,7 @@
                             <div class="list-group">
                                 <a href="{{ route('posts.index') }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Posts <span class="badge badge-primary badge-pill">9</span></a>
                                 <a href="{{ route('categories.index') }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Categories <span class="badge badge-primary badge-pill">5</span></a>
-                                <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Porta ac consectetur ac <span class="badge badge-primary badge-pill">7</span></a>
+                                <a href="{{ route('tags.index') }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Tags <span class="badge badge-primary badge-pill">7</span></a>
                             </div>
 
                             <div class="list-group">

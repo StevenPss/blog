@@ -1,15 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    @include('partials.errors')
     <div class="card card-default">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0">
