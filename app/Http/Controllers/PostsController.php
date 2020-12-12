@@ -6,6 +6,7 @@ use App\Http\Requests\Posts\CreatePostsRequest;
 use App\Http\Requests\Posts\UpdatePostsRequest;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -35,7 +36,8 @@ class PostsController extends Controller
     public function create()
     {
         return view('posts.create', [
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'tags' => Tag::all()
         ]);
     }
 
@@ -49,7 +51,7 @@ class PostsController extends Controller
     {
         $image = $request->image->store('posts');
 
-        Post::create([
+        $post = Post::create([
             'title' => $request->title,
             'description' => $request->description,
             'content' => $request->content,
@@ -57,6 +59,12 @@ class PostsController extends Controller
             'image' => $image,
             'category_id' => $request->category
         ]);
+
+        // attach tags to post if tags exists
+        if ($request->tags) {
+            //attach works because of many to many relationships between post & tag
+            $post->tags()->attach($request->tags);
+        }
 
         session()->flash('success', 'Post created successfully');
 
@@ -84,7 +92,8 @@ class PostsController extends Controller
     {
         return view('posts.create', [
             'post' => $post,
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'tags' => Tag::all()
         ]);
     }
 
@@ -104,6 +113,11 @@ class PostsController extends Controller
             $post->deleteImage();
 
             $data['image'] = $image;
+        }
+
+        if ($request->tags) {
+            //attach & detach tags as necessary if selected or not selected
+            $post->tags()->sync($request->tags);
         }
 
         $post->update($data);

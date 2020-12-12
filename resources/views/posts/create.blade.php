@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     <label for="category">Category</label>
-                    <select class="form-control categories" name="category" id="category">
+                    <select class="form-control" name="category" id="category">
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}"
                                 @if (isset($post))
@@ -42,6 +42,22 @@
                         @endforeach
                     </select>
                 </div>
+                @if ($tags->count() > 0)
+                    <div class="form-group">
+                        <label for="tag">Tags</label>
+                        <select class="form-control tags" name="tags[]" id="tags" multiple>
+                            @foreach ($tags as $tag)
+                                <option value="{{ $tag->id }}"
+                                    @if (isset($post))
+                                        @if ($post->hasTag($tag->id))
+                                            selected
+                                        @endif
+                                    @endif
+                                    >{{ $tag->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                @endif
                 <div class="form-group">
                     <label for="published_at">Published At</label>
                     <input type="text" class="form-control" name="published_at" id="published_at" value="{{ isset($post) ? $post->published_at : '' }}">
@@ -78,6 +94,6 @@
             enableTime:true
         });
 
-        $('.categories').select2();
+        $('.tags').select2();
     </script>
 @endsection
