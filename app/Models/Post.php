@@ -18,7 +18,8 @@ class Post extends Model
         'content',
         'published_at',
         'image',
-        'category_id'
+        'category_id',
+        'user_id'
     ];
 
 
@@ -48,5 +49,10 @@ class Post extends Model
     public function hasTag($tagId)
     {
         return in_array($tagId, $this->tags->pluck('id')->toArray());
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

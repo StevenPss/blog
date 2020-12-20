@@ -57,7 +57,8 @@ class PostsController extends Controller
             'content' => $request->content,
             'published_at' => $request->published_at,
             'image' => $image,
-            'category_id' => $request->category
+            'category_id' => $request->category,
+            'user_id' => auth()->user()->id
         ]);
 
         // attach tags to post if tags exists
