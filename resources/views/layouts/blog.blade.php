@@ -56,7 +56,7 @@
           </ul>
         </section>
 
-        @if (!auth()->user())
+        @if (auth()->user())
             <a class="btn btn-xs btn-round btn-success" href="{{ route('home') }}">Dashboard</a>
         @else
             <a class="btn btn-xs btn-round btn-success" href="{{ route('login') }}">Login</a>
