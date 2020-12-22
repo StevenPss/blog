@@ -15,6 +15,7 @@
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="{{ asset('img/apple-touch-icon.png') }}">
     <link rel="icon" href="{{ asset('img/favicon.png') }}">
+    <livewire:styles />
   </head>
 
   <body>
@@ -89,6 +90,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/page.min.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
+    <livewire:scripts />
 
   </body>
 </html>
