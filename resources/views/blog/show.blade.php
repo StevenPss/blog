@@ -44,6 +44,8 @@
             {{ $post->description }}
             <hr>
             {!! $post->content !!}
+
+            <div class="addthis_inline_share_toolbox"></div>
   
             <div class="row">
               <div class="col-lg-8 mx-auto">

@@ -25,7 +25,7 @@
 
         <div class="navbar-left">
           <button class="navbar-toggler" type="button">&#9776;</button>
-          <a class="navbar-brand font-weight-bold text-muted" href="#">Blog</a>
+          <a class="navbar-brand font-weight-bold text-muted" href="{{ url('/') }}">Blog</a>
         </div>
 
         <section class="navbar-mobile">
@@ -90,6 +90,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/page.min.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5fe237bc2e015bda"></script>
     <livewire:scripts />
 
   </body>
