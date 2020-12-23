@@ -22,6 +22,15 @@ class Post extends Model
         'user_id'
     ];
 
+    protected $dates = [
+        'published_at'
+    ];
+
+    public function scopePublished($query)
+    {
+        return $query->where('published_at', '<=', now());
+    }
+
 
     /**
      * delete post image from storage
@@ -56,14 +65,18 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Return only published posts
+     * @return 
+     */
     public function scopeSearched($query)
     {
         $search = request()->query('search');
 
         if (!$search) {
-           return $query;
+           return $query->published();
         }
 
-        return $query->where('title', 'like', "%{$search}%");
+        return $query->published()->where('title', 'like', "%{$search}%");
     }
 }
