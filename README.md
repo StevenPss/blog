@@ -7,7 +7,6 @@ A blog website developed using the [Laravel](https://laravel.com/) php framework
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/StevenPss/blog/blob/main/LICENSE)
 <img src="https://img.shields.io/badge/developed%20by-StevenPss-blue.svg">
 [![Follow on GitHub](https://img.shields.io/github/followers/StevenPss?label=Follow&style=social)](https://github.com/StevenPss)
-<img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" >
 <img src="https://img.shields.io/github/stars/StevenPss/blog.svg?style=flat">
 <img src="https://img.shields.io/github/languages/top/StevenPss/blog.svg"/>
 [![issues](https://img.shields.io/github/issues/StevenPss/blog.svg)](https://github.com/StevenPss/blog/issues)
@@ -83,4 +82,4 @@ Features include:
 
 ## License
 
-This project is an open-sourced software licensed under the [MIT license](LICENSE.md).
+This project is an open-sourced software licensed under the [MIT license](https://github.com/StevenPss/blog/blob/main/LICENSE).
