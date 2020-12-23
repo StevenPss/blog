@@ -1,61 +1,86 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1 align="center">Laravel Blog</h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<div align="center">
+
+A blog website developed using the [Laravel](https://laravel.com/) php framework.
+
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/StevenPss/blog/blob/main/LICENSE)
+<img src="https://img.shields.io/badge/developed%20by-StevenPss-blue.svg">
+[![Follow on GitHub](https://img.shields.io/github/followers/StevenPss?label=Follow&style=social)](https://github.com/StevenPss)
+<img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" >
+<img src="https://img.shields.io/github/stars/StevenPss/blog.svg?style=flat">
+<img src="https://img.shields.io/github/languages/top/StevenPss/blog.svg"/>
+[![issues](https://img.shields.io/github/issues/StevenPss/blog.svg)](https://github.com/StevenPss/blog/issues)
+[![issues](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](https://github.com/StevenPss/blog/pulls)
+
 </p>
 
-## About Laravel
+</div>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Blog
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+All contributions are welcomed! (but please submit an issue to make sure the PR is warranted first)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Installation
 
-## Learning Laravel
+1. Clone this repo
+    ```zsh
+    ~ git clone https://github.com/StevenPss/blog
+    ```
+2. Access your project directory
+   ```zsh
+    ~ cd blog
+   ```
+3. Install the project dependencies
+   ```zsh
+    ~ composer install
+   ```
+4. Create a copy of your **.env** file
+   ```zsh
+    ~ cp .env.example .env
+   ```
+5. Generate your **encryption key**
+   ```zsh
+    ~ php artisan key:generate
+   ```
+6. Create an empty database for your project
+   * Using any database tools you prefer *(I use [TablePlus](https://tableplus.com/). if you use windows then I recommend a tool called [Laragon](https://laragon.org/))*
+7. Configure your **.env** file to allow a connection to the database
+   * In the **.env** file, fill in the options **DB_HOST**, **DB_PORT**, **DB_DATABASE**, **DB_USERNAME** and **DB_PASSWORD** so that they match the credentials of the database you have just created.
+8. **Migrate** the database architecture
+   ```zsh
+    ~ php artisan migrate:refresh --seed
+   ```
+9. Run the application
+   ```zsh
+    ~ php artisan serve
+   ```
+10. Default admin details
+    * **Email**: `admin@admin.com`
+    * **Password**: `password`
+    
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Features
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Features include:
+* Authentication
+  - Admin
+    - Can make a user a writer or admin but users are writers by default.
+    - Can add posts, categories and tags.
+  - Writer
+    - Can add posts, categories and tags.
+* Categories
+  - Create, Read, Update, Delete 
+* Tags
+  - Create, Read, Update, Delete
+* Trash posts
+  - When a post is deleted, it gets trashed, when it is trashed the user can choose to permanently delete the post or restore it.
+* Search functionality of posts by title using [livewire](https://laravel-livewire.com/) and query statements
+* [Disqus](https://disqus.com/) a popular blog comment hosting service
+* [AddThis](https://www.addthis.com/) a social bookmarking service that can be integrated into a website with the use of a web widget. Include services such as Facebook, MySpace, Google Bookmarks, Pinterest, and Twitter.
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is an open-sourced software licensed under the [MIT license](LICENSE.md).
