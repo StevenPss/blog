@@ -49,14 +49,15 @@ class PostsController extends Controller
      */
     public function store(CreatePostsRequest $request)
     {
-        $image = $request->image->store('posts');
+        $image = $request->image->store('posts', 's3');
+        Storage::disk('s3')->setVisibility($image, 'public');
 
         $post = Post::create([
             'title' => $request->title,
             'description' => $request->description,
             'content' => $request->content,
             'published_at' => $request->published_at,
-            'image' => $image,
+            'image' => Storage::disk('s3')->url($image),
             'category_id' => $request->category,
             'user_id' => auth()->user()->id
         ]);
