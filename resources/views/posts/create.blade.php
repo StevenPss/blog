@@ -64,7 +64,7 @@
                 </div>
                 @if (isset($post))
                     <div class="form-group">
-                        <img src="/storage/{{ $post->image }}" alt="" class="w-100">
+                        <img src="{{ $post->image }}" alt="" class="w-100">
                     </div>
                 @endif
                 <div class="form-group">
