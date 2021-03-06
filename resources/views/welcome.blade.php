@@ -1,18 +1,18 @@
 @extends('layouts.blog')
 
 @section('title')
-    Blog
+    Journey | Blog
 @endsection
 
 @section('header')
     <!-- Header -->
-    <header class="header text-center text-white" style="background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);">
+    <header class="header text-center text-white" style="background-image: url('{{ asset('img/BG-img.jpg') }}');box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.3);">
         <div class="container">
   
           <div class="row">
             <div class="col-md-8 mx-auto">
   
-              <h1>Latest Blog Posts</h1>
+              <h1>The Journey is on</h1>
               <p class="lead-2 opacity-90 mt-6">Read and get updated on how we progress</p>
   
             </div>

@@ -13,7 +13,6 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="{{ asset('img/apple-touch-icon.png') }}">
     <link rel="icon" href="{{ asset('img/favicon.png') }}">
     <livewire:styles />
   </head>
@@ -25,7 +24,10 @@
 
         <div class="navbar-left">
           <button class="navbar-toggler" type="button">&#9776;</button>
-          <a class="navbar-brand font-weight-bold text-muted" href="{{ url('/') }}">Blog</a>
+          <a class="navbar-brand" href="{{ url('/') }}">
+            <img class="logo-dark" src="{{ asset('img/logo-dark.png') }}" alt="logo">
+            <img class="logo-light" src="{{ asset('img/logo-light.png') }}" alt="logo">
+          </a>
         </div>
 
         <section class="navbar-mobile">
@@ -75,11 +77,16 @@
       <div class="container">
         <div class="row gap-y align-items-center">
 
-          <div class="col-sm-12 text-center order-lg-last">
+          <div class="col-3">
+            <a href="{{ url('/') }}"><img src="{{ asset('img/logo-dark.png') }}" alt="logo"></a>
+          </div>
+
+          <div class="col-9 text-right">
             <div class="social">
-              <a class="social-twitter" href="https://twitter.com/stevenpss_"><i class="fa fa-twitter"></i></a>
-              <a class="social-github" href="https://github.com/StevenPss"><i class="fa fa-github"></i></a>
-              <a class="social-instagram" href="https://www.instagram.com/stevenpss_/"><i class="fa fa-instagram"></i></a>
+              <a class="social-twitter" href="https://twitter.com/intent/follow?screen_name=stevenselolo"><i class="fa fa-twitter"></i></a>
+              <a class="social-linkedin" href="https://www.linkedin.com/in/stevenselolo/"><i class="fa fa-linkedin"></i></a>
+              <a class="social-instagram" href="https://www.instagram.com/stevenselolo/"><i class="fa fa-instagram"></i></a>
+              <a class="social-youtube" href="https://www.youtube.com/channel/UCVNCHxRYBFsr--S87eLyiMw"><i class="fa fa-youtube"></i></a>
             </div>
           </div>
 
